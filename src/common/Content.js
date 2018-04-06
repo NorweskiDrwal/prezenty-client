@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import routes from '../routes';
 
 const content = (props) => (
-	<main>
+	<Fragment>
 		{routes}
-	</main>
+	</Fragment>
 );
 
 export default content;

@@ -1,20 +1,30 @@
-/* BULMA.CSS */
-@import '../node_modules/bulma/bulma';
-/* NORMALIZE.CSS */
-@import '../node_modules/normalize.css';
-
 /* COMMON */
 
+$green: #23d160;
+$mint: #daf8dd;
 $neutral: #efefef;
-$grey: #a9a9a9;
+$grey: #495057;
 $red: #ff383f;
 $blue: #4056a1;
 $lightblue: #caebf2;
 $white: #f5f5f5;
 
+$font-title: 'Dancing Script';
+$font: 'Life Savers';
+
 /* GENERAL */
 
-
-
+body {height: 100vh;}
 
 /* HEADER */
+
+.header {
+  background: $green;
+
+  button {
+    background: $white;
+    border: none;
+    color: $blue;
+    transition: all .3s ease;
+  }
+}

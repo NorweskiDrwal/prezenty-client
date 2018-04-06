@@ -8,6 +8,8 @@ import Header from './common/Header';
 import Content from './common/Content';
 import Footer from './common/Footer';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'normalize.css';
 import './App.scss';
 
 class App extends Component {

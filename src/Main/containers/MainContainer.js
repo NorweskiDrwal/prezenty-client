@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
-import ListForm from '../components/ListForm';
+import MainForm from '../components/MainForm';
 
 class MainContainer extends Component {
   render() {
     return (
-      <div className="hero-body">
-        <ListForm />
-      </div>
+      <Fragment>
+        <MainForm />
+      </Fragment>
     )
   }
 }
