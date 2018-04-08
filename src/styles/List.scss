@@ -1,2 +1,62 @@
 @import '../App.scss';
 
+.list__create {
+  background: $neutral;
+  min-height: 100vh;
+  padding-top: 60px;
+}
+
+.create--list {
+  margin: 0 auto;
+  max-width: 996px;
+  width: 100%;
+
+  .card-img-overlay {
+    background: rgba(0,0,0,0.4);
+    color: $white;
+    font-family: $font-title;
+    
+    height: 50px;
+    padding:5px 13px 13px;
+    text-align: center;
+    top: auto;
+    vertical-align: baseline;
+
+    .card-title {
+      font-size: 30px;
+      margin: 0;
+    }
+  }
+
+  .card {
+    border-color: $grey;
+
+    .card-subtitle {
+      font-size: 25px;
+      text-align: center;
+    }
+  }
+
+  .card:not(.addImg) {
+    background: $mint;
+    margin: 10px 1px 1px;
+    padding: 10px;
+
+    form {
+
+      .form-group {
+        position: relative;
+
+        input.pr-110 {padding-right: 110px;}
+
+        button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+    }
+  }
+}

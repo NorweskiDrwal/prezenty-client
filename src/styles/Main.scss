@@ -3,7 +3,7 @@
 .main__main {
   background: $green;
   height: 100vh;
-  margin-top: -50px;
+  padding-top: 60px;
   text-align: center;
 
   .card {
@@ -36,7 +36,7 @@
       .form-group {
         position: relative;
 
-        input {padding-right: 110px;}
+        input.pr-110 {padding-right: 110px;}
 
         button {
           position: absolute;

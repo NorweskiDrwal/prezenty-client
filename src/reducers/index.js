@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import userRepos from './userRepos'
+// import items from './items'
 
 const home = combineReducers({
-	userRepos
+	// items
 });
 
 export default home;
