@@ -8,7 +8,7 @@ const list = ({ items, name }) => (
       <ListItem 
       {...item} 
       items={items} 
-      key={item.name + 1} />
+      key={item.name} />
     ))}
   </Fragment>
 )

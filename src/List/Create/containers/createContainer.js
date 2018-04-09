@@ -35,7 +35,8 @@ class listCreateContainer extends Component {
         <AddDetails />
         <AddItem 
           handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit} />
+          handleSubmit={this.handleSubmit}
+          name={this.state.name} />
         <List 
           name={this.state.name}
           items={this.state.items} />

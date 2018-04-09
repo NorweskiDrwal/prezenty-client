@@ -24,21 +24,22 @@ body {
   height: 100vh;
 }
 
-label {
-  background: #fff;
-  border: 1px solid #ced4da;
-  border-bottom: none;
-  border-top-left-radius: .3rem;
-  border-top-right-radius: .3rem;
-  padding: 0 15px;
-  position: absolute;
-  top: -24px;
-  left: 50%;
-  transform: translateX(-50%)
-}
-
 .form-group {
   margin-top: 40px;
+  position: relative;
+
+  label {
+    background: #fff;
+    border: 1px solid #ced4da;
+    border-bottom: none;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+    padding: 0 15px;
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%)
+  }
 }
 
 /* HEADER */
@@ -62,6 +63,12 @@ label {
 
 .list__item {
   position: relative;
+  min-height: 58px;
+
+  .card-title {
+    margin: 7px;
+    margin-right: 130px;
+  }
 
   button {
     position: absolute;
@@ -102,5 +109,13 @@ input[type=date]::-webkit-inner-spin-button {
     padding-left: 25px;
     padding-right: 0;
     width:180px;
+  }
+}
+
+/* MODAL */
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 600px;
   }
 }

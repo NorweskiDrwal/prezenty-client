@@ -15,7 +15,7 @@ const addItem = ({name, handleChange, handleSubmit}) => (
           onChange={handleChange} />
         <Button 
           size="lg" 
-          type="submit" >
+          type="submit" disabled={name === '' ? true : false} >
           Dodaj</Button>
       </FormGroup>
     </Form>
