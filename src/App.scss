@@ -46,7 +46,7 @@ body {
 
 .header {
   background: transparent;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -114,8 +114,13 @@ input[type=date]::-webkit-inner-spin-button {
 
 /* MODAL */
 
+.modal-dialog {
+  top: 15%;
+}
+
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 600px;
+    top: 20%;
   }
 }

@@ -2,31 +2,79 @@ import React, { Fragment } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { ModalBody } from 'reactstrap';
 
-const signForm = ({ openRegForm, handleOpenRegForm }) => (
+const signForm = ({ 
+  openRegForm, 
+  handleOpenRegForm, 
+  registerUser,
+  loginUser,
+  handleEmailChange,
+  handlePassChange, 
+  email,
+  password 
+}) => (
   <Fragment>
-    <ModalBody className="text-center">
-      <h4>Żeby utworzyć listę musisz się zalogować:</h4>
-      <Form inline>
-        <Input className="mb-2 mr-sm-2 mb-sm-0" type="email" placeholder="Email" />
-        <Input className="mb-2 mr-sm-2 mb-sm-0" type="password" placeholder="Hasło" />
-        <Button>Zaloguj</Button>
-      </Form>
-    <hr />
-      <h5>Jeśli nie posiadasz jeszcze konta, <span onClick={handleOpenRegForm}>zarejestruj się!</span></h5>
-      { openRegForm && (<Form>
+    <h4 className="text-center sign__title">Żeby utworzyć listę musisz być zalogowany</h4>
+
+    { !openRegForm && (<ModalBody className="text-center">
+      <h5>Logowanie</h5>
+      <Form onSubmit={loginUser}>
         <FormGroup>
           <Label>Email</Label>
-          <Input type="email" placeholder="Wpisz tutaj swój adres email" />
+          <Input 
+            value={email} 
+            onChange={handleEmailChange} 
+            type="email" 
+            placeholder="Wpisz tutaj swój adres email" />
         </FormGroup>
         <FormGroup>
           <Label>Hasło</Label>
-          <Input type="password" placeholder="Wpisz tutaj swoje hasło" />
+          <Input 
+          value={password} 
+          onChange={handlePassChange}
+          type="password" 
+          placeholder="Wpisz tutaj swoje hasło" />
         </FormGroup>
-        <Button block>Zarejestruj</Button>
-      </Form>)}
+        <Button 
+          block 
+          color="primary" 
+          type="submit">Zaloguj się</Button>
+      </Form>
       <hr />
-      <p>Lub zaloguj się przy użyciu:</p>
-    </ModalBody>
+      <h5>Jeśli nie posiadasz jeszcze konta, <span onClick={handleOpenRegForm}>zarejestruj się!</span></h5>
+    </ModalBody>)}
+
+    { openRegForm && (<ModalBody className="text-center">
+      <h5>Rejestracja</h5>
+      <Form onSubmit={registerUser}>
+        <FormGroup>
+          <Label>Email</Label>
+          <Input 
+            value={email} 
+            onChange={handleEmailChange} 
+            type="email" 
+            placeholder="Wpisz tutaj swój adres email" />
+        </FormGroup>
+        <FormGroup>
+          <Label>Hasło</Label>
+          <Input 
+            value={password} 
+            onChange={handlePassChange} 
+            type="password" 
+            placeholder="Wpisz tutaj swoje hasło" />
+        </FormGroup>
+        <Label check className="reg__check">
+          <Input type="checkbox" required />
+          Zgadzam się na <span>Warunki</span> korzystania z serwisu
+        </Label>
+        <Button 
+          block 
+          color="success" 
+          type="submit">Zarejestruj się</Button>
+      </Form>
+      <hr />
+      <h5>Jeśli posiadasz już konto, <span onClick={handleOpenRegForm}>zaloguj się!</span></h5>
+    </ModalBody>)}
+
   </Fragment>
 );
 

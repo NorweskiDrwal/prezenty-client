@@ -1,0 +1,23 @@
+@import '../App.scss';
+
+.sign__title {
+  margin-top: 20px;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding-bottom: 20px;
+}
+
+.modal-body {
+
+  span {
+    color: $red;
+    
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+.reg__check {
+  margin-bottom: 10px !important;
+}
