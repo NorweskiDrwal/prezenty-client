@@ -13,7 +13,7 @@ class SignContainer extends Component {
       openRegForm: false,
       user: {
         email: '',
-        password: ''
+        password: '',
       }
     }
   }
@@ -27,18 +27,23 @@ class SignContainer extends Component {
     let email = this.state.user.email;
     let password = this.state.user.password;
     firebase.auth().createUserWithEmailAndPassword(email, password)
-      .catch((error) => console.log(error));
-    console.log(this.state.user);
-    this.push('/utworz-nowa-liste');
+      .then(() => {
+        this.props.toggle();
+        this.props.goToNewList();
+      })
+      .catch((error) => {console.log(error)});
   }
 
-  loginUser = (e, { history }) => {
+  loginUser = (e) => {
     e.preventDefault();
     let email = this.state.user.email;
     let password = this.state.user.password;
     firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(() => {
+        this.props.toggle();
+        this.props.goToNewList();
+      })
       .catch((error) => console.log(error));
-    console.log(this.state.user);
   }
 
   handleEmailChange = (e) => {

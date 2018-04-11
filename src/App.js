@@ -3,7 +3,8 @@ import { Provider } from 'react-redux';
 import { Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 
-import store, { history } from './store.js';
+import firebase from './firebase';
+import store, { history } from './store';
 
 import Layout from './Layout/components/Layout';
 import Main from './Main';
@@ -19,7 +20,8 @@ class App extends Component {
 
     this.state = {
       isAuthenticated: false,
-      modal: false
+      isNewList: false,
+      modal: false,
     }
   }
 
@@ -29,13 +31,38 @@ class App extends Component {
     });
   }
 
+  goToNewList = () => {
+    history.push('/utworz-nowa-liste');
+    this.setState({
+      isAuthenticated: !this.state.isAuthenticated,
+      isNewList: !this.state.isNewList,
+    });
+  }
+
+  logoutUser = () => {
+    firebase.auth().signOut()
+      .then(() => {
+        history.push('/')
+        this.setState({
+          isAuthenticated: !this.state.isAuthenticated
+        });
+      })
+      .catch(function(error) {
+        console.log(error)
+      });
+  }
+
   render() {
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>          
           <Layout 
             toggle={this.toggle}
-            modal={this.state.modal} >
+            logoutUser={this.logoutUser}
+            goToNewList={this.goToNewList}
+            modal={this.state.modal}
+            isAuthenticated={this.state.isAuthenticated}
+            isNewList={this.state.isNewList}  >
             <Route exact path="/" component={Main} />
             <Route path="/utworz-nowa-liste" component={ListCreate} />
             
