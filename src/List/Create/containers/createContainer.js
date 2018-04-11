@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import AddImage from '../components/AddImage';
 import AddDetails from '../components/AddDetails';
 import AddItem from '../components/AddItem';
-import List from '../../../common/List';
+import List from '../../../Layout/components/List';
 
 class listCreateContainer extends Component {
   constructor(props) {

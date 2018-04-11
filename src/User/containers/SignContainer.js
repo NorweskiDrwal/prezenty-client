@@ -28,16 +28,17 @@ class SignContainer extends Component {
     let password = this.state.user.password;
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .catch((error) => console.log(error));
-    console.log(this.state.user)
+    console.log(this.state.user);
+    this.push('/utworz-nowa-liste');
   }
 
-  loginUser = (e) => {
+  loginUser = (e, { history }) => {
     e.preventDefault();
     let email = this.state.user.email;
     let password = this.state.user.password;
     firebase.auth().signInWithEmailAndPassword(email, password)
       .catch((error) => console.log(error));
-    console.log(this.state.user)
+    console.log(this.state.user);
   }
 
   handleEmailChange = (e) => {

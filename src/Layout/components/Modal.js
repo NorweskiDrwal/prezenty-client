@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Modal } from 'reactstrap';
-import SignContainer from '../User';
+import SignContainer from '../../User';
 
 const modal = ({ modal, toggle }) => (
   <Fragment>

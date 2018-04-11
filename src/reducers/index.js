@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
-// import items from './items'
+import tasks from './tasks';
 
-const home = combineReducers({
-	// items
+export default combineReducers({
+	tasks,
+    router: routerReducer,
 });
-
-export default home;

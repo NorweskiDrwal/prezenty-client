@@ -1,13 +1,13 @@
-import React, { Component, Fragment } from 'react';
-import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { Route } from 'react-router';
+import { ConnectedRouter } from 'react-router-redux';
 
-import store from './store';
+import store, { history } from './store.js';
 
-import Header from './common/Header';
-import Content from './common/Content';
-import Footer from './common/Footer';
-import Modal from './common/Modal';
+import Layout from './Layout/components/Layout';
+import Main from './Main';
+import ListCreate from './List/Create/';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'normalize.css';
@@ -31,17 +31,22 @@ class App extends Component {
 
   render() {
     return (
-      <Provider store={ store }>
-        <BrowserRouter>
-          <Fragment>
-            <Header 
+      <Provider store={store}>
+        <ConnectedRouter history={history}>          
+          <Layout 
+            toggle={this.toggle}
+            modal={this.state.modal} >
+            <Route exact path="/" component={Main} />
+            <Route path="/utworz-nowa-liste" component={ListCreate} />
+            
+            {/* <Header 
               toggle={this.toggle} 
               isAuthenticated={this.state.isAuthenticated} />
             <Content />
             <Footer />
-            <Modal modal={this.state.modal} toggle={this.toggle} />
-          </Fragment>
-        </BrowserRouter>
+            <Modal modal={this.state.modal} toggle={this.toggle} /> */}
+          </Layout>
+        </ConnectedRouter>
       </Provider>
     );
   }
