@@ -1,9 +1,9 @@
 import React, { Fragment, Component } from 'react';
 
-import firebase from '../../firebase';
+import firebase from '../../../firebase';
 import SignForm from '../components/SignForm';
 
-import '../../_styles/User.scss';
+import '../../../_styles/User.scss';
 
 class SignContainer extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class SignContainer extends Component {
     let password = this.state.user.password;
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(() => {
-        this.props.toggle();
+        this.props.toggleModalOpen();
         this.props.goToNewList();
       })
       .catch((error) => {console.log(error)});
@@ -40,7 +40,7 @@ class SignContainer extends Component {
     let password = this.state.user.password;
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(() => {
-        this.props.toggle();
+        this.props.toggleModalOpen();
         this.props.goToNewList();
       })
       .catch((error) => console.log(error));

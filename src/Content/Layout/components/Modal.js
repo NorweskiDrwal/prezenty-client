@@ -1,13 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Modal } from 'reactstrap';
 import SignContainer from '../../User';
 
-const modal = ({ modal, toggle, goToNewList }) => (
-  <Fragment>
-    <Modal isOpen={modal} toggle={toggle} >
-      <SignContainer toggle={toggle} goToNewList={goToNewList} />
-    </Modal>
-  </Fragment>
+const modal = ({ 
+  modalOpen, 
+  toggleModalOpen, 
+  goToNewList, 
+}) => (
+  <Modal 
+    isOpen={modalOpen} 
+    toggle={toggleModalOpen} >
+    <SignContainer 
+      toggleModalOpen={toggleModalOpen} 
+      goToNewList={goToNewList} />
+  </Modal>
 );
 
 export default modal;
