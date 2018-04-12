@@ -1,4 +1,4 @@
-import React, { Fragment }from 'react';
+import React, { Fragment } from 'react';
 
 import Header from '../components/Header';
 import Modal from '../components/Modal';

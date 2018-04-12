@@ -6,9 +6,9 @@ import { ConnectedRouter } from 'react-router-redux';
 import firebase from './firebase';
 import store, { history } from './store';
 
-import Layout from './Layout/components/Layout';
-import Main from './Main';
-import ListCreate from './List/Create/';
+import Content from './Content';
+import Main from './Content/Main';
+import ListCreate from './Content/List/Create/';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'normalize.css';
@@ -56,7 +56,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>          
-          <Layout 
+          <Content 
             toggle={this.toggle}
             logoutUser={this.logoutUser}
             goToNewList={this.goToNewList}
@@ -65,14 +65,7 @@ class App extends Component {
             isNewList={this.state.isNewList}  >
             <Route exact path="/" component={Main} />
             <Route path="/utworz-nowa-liste" component={ListCreate} />
-            
-            {/* <Header 
-              toggle={this.toggle} 
-              isAuthenticated={this.state.isAuthenticated} />
-            <Content />
-            <Footer />
-            <Modal modal={this.state.modal} toggle={this.toggle} /> */}
-          </Layout>
+          </Content>
         </ConnectedRouter>
       </Provider>
     );

@@ -4,7 +4,6 @@ import {
   ITEM_ADD_ERROR,
   ITEM_ADD_SUCCESS,
   ITEM_ADD_LOADING,
-  OPEN_SIGN_MODAL,
 } from '../actions/index';
 
 const initialState = {
@@ -38,13 +37,6 @@ const tasks = (state = initialState, { type, payload }) => {
         error: null,
         itemName: null,
       };
-
-    case OPEN_SIGN_MODAL:
-      return {
-        ...state,
-        loading: true,
-        openModal: true,
-      }  
 
     case LOCATION_CHANGE:
       return {
